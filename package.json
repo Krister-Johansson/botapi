@@ -1,0 +1,24 @@
+{
+  "name": "botapi",
+  "version": "1.0.0",
+  "description": "TEST",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Krister-Johansson/botapi.git"
+  },
+  "author": "Krister Johansson <krister.johansson86@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Krister-Johansson/botapi/issues"
+  },
+  "homepage": "https://github.com/Krister-Johansson/botapi#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "moment": "^2.19.2"
+  }
+}
