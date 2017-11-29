@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 app.get('/time', (req, res) => {
     res.json({
-        current_time: moment().add(OFFSET, 'h').format('k')
+        current_time: moment().add(OFFSET, 'h').format('H')
     })
 })
 
