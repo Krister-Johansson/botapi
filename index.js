@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000
 const FORMAT = process.env.FORMAT || 'YYYYMMDD'
 const OPENTIME = process.env.OPENTIME || 9
 const LOCKED_BLOCK = process.env.LOCKED_BLOCK || 'LOCKED_BLOCK'
-const OFFSET = process.env.OFFSET || 60
+const OFFSET = process.env.OFFSET || 1
 
 app.get('/', (req, res) => {
 
