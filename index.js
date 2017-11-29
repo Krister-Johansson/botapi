@@ -13,7 +13,7 @@ const OFFSET = process.env.OFFSET || 1
 app.get('/', (req, res) => {
 
     let result = {}
-    if (parseInt(moment().add(OFFSET, 'h').format('k')) >= OPENTIME) {
+    if (parseInt(moment().add(OFFSET, 'h').format('H')) >= OPENTIME) {
         result = {
             redirect_to_blocks: [moment().format(FORMAT)]
         }
