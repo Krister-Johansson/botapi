@@ -8,11 +8,12 @@ const PORT = process.env.PORT || 3000
 const FORMAT = process.env.FORMAT || 'YYYYMMDD'
 const OPENTIME = process.env.OPENTIME || 9
 const LOCKED_BLOCK = process.env.LOCKED_BLOCK || 'LOCKED_BLOCK'
+const OFFSET = process.env.OFFSET || 60
 
 app.get('/', (req, res) => {
 
     let result = {}
-    if (parseInt(moment().format('h')) >= OPENTIME) {
+    if (parseInt(moment().add(OFFSET, 'h').format('h')) >= OPENTIME) {
         result = {
             redirect_to_blocks: [moment().format(FORMAT)]
         }
@@ -26,7 +27,7 @@ app.get('/', (req, res) => {
 
 app.get('/time', (req, res) => {
     res.json({
-        current_time: moment().format('h')
+        current_time: moment().add(OFFSET, 'h').format('h')
     })
 })
 
