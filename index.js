@@ -7,18 +7,19 @@ const app = express()
 const PORT = process.env.PORT || 3000
 const FORMAT = process.env.FORMAT || 'YYYYMMDD'
 const OPENTIME = process.env.OPENTIME || 9
-const LOCKED_BLOCK = process.env.LOCKED_BLOCK || 'YYYYMMDD'
+const LOCKED_BLOCK = process.env.LOCKED_BLOCK || 'LOCKED_BLOCK'
 
 app.get('/', (req, res) => {
     if (parseInt(moment().format('hh')) >= OPENTIME) {
-        res.json({
+        result = {
             redirect_to_blocks: [moment().format(FORMAT)]
-        })
+        }
     } else {
-        res.json({
+        result = {
             redirect_to_blocks: [LOCKED_BLOCK]
-        })
+        }
     }
+    res.json(result)
 })
 
 app.listen(PORT, () => console.log(`Server start on port: ${PORT} with format: ${FORMAT}`))
