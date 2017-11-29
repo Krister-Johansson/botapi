@@ -10,6 +10,8 @@ const OPENTIME = process.env.OPENTIME || 9
 const LOCKED_BLOCK = process.env.LOCKED_BLOCK || 'LOCKED_BLOCK'
 
 app.get('/', (req, res) => {
+
+    let result = {}
     if (parseInt(moment().format('hh')) >= OPENTIME) {
         result = {
             redirect_to_blocks: [moment().format(FORMAT)]
