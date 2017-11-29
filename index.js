@@ -13,7 +13,7 @@ const OFFSET = process.env.OFFSET || 1
 app.get('/', (req, res) => {
 
     let result = {}
-    if (parseInt(moment().add(OFFSET, 'h').format('h')) >= OPENTIME) {
+    if (parseInt(moment().add(OFFSET, 'h').format('k')) >= OPENTIME) {
         result = {
             redirect_to_blocks: [moment().format(FORMAT)]
         }
@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
 
 app.get('/time', (req, res) => {
     res.json({
-        current_time: moment().add(OFFSET, 'h').format('h')
+        current_time: moment().add(OFFSET, 'h').format('k')
     })
 })
 
