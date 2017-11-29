@@ -12,7 +12,7 @@ const LOCKED_BLOCK = process.env.LOCKED_BLOCK || 'LOCKED_BLOCK'
 app.get('/', (req, res) => {
 
     let result = {}
-    if (parseInt(moment().format('hh')) >= OPENTIME) {
+    if (parseInt(moment().format('h')) >= OPENTIME) {
         result = {
             redirect_to_blocks: [moment().format(FORMAT)]
         }
@@ -22,6 +22,12 @@ app.get('/', (req, res) => {
         }
     }
     res.json(result)
+})
+
+app.get('/time', (req, res) => {
+    res.json({
+        current_time: moment().format('h')
+    })
 })
 
 app.listen(PORT, () => console.log(`Server start on port: ${PORT} with format: ${FORMAT}`))
